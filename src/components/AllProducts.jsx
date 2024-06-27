@@ -8,10 +8,20 @@ const AllProducts = () => {
     return <h1>Oh noooo. There is an error in the code.</h1>;
   }
 
-  if(isLoading){
-    return <h1>Data is loading...</h1>
+  if (isLoading) {
+    return <h1>Data is loading...</h1>;
   }
-  return <div>All Products</div>;
+
+  return (
+    <div>
+      {data?.products.map((p) => (
+        <div key={p.id}>
+          <h1>{p.title}</h1>
+          <p>{p.description}</p>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default AllProducts;
