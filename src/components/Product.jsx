@@ -2,8 +2,8 @@ import React from "react";
 import { useGetProductByIdQuery } from "../app/services/productsApi";
 
 const Product = () => {
-  const { data, isLoading, isError } = useGetProductByIdQuery(18);
-  console.log(data);
+  const { data, isLoading, isError } = useGetProductByIdQuery(5);
+  //console.log(data);
 
   if (isLoading) {
     return (
@@ -29,6 +29,8 @@ const Product = () => {
           <h3>{data.title}</h3>
           <p>{data.description}</p>
           <img src={data.images[0]} width={480} />
+          <h3>${data.price}</h3>
+          <h4>{data.rating}</h4>
         </div>
       )}
     </div>
