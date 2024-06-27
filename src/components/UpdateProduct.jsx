@@ -2,17 +2,17 @@ import React from "react";
 import { useUpdateProductMutation } from "../app/services/productsApi";
 
 const UpdateProduct = ({ productId }) => {
-  const [updateProduct, { data, isLoading, isError,isSuccess }] =
+  const [updateProduct, { data, isLoading, isError }] =
     useUpdateProductMutation();
 
   const handleUpdateProduct = async () => {
     try {
-      const updateProductData = {
-        id: productId,
-        title: "Product Title Updated",
+      const updatedProductData = {
+        "title": "Nice black Polo T-Shirt updated",
       };
 
-      await updateProduct({ id: productId, updateProduct: updateProductData });
+      await updateProduct({ id: productId, updatedProduct: updatedProductData });
+      console.log(data);
     } catch (err) {
       console.log(`Updating product failed with error: ${err}`);
     }
@@ -25,11 +25,6 @@ const UpdateProduct = ({ productId }) => {
     );
   }
 
-  if(isSuccess){
-  return <div>
-  <h1>{`Product is updated successfully with title: ${data?.title}`}</h1>
-  </div>
-  }
   if (isError) {
     return (
       <div>

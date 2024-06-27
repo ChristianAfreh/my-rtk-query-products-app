@@ -10,7 +10,7 @@ function App() {
       {/* <AllProducts /> */}
       {/* <Product /> */}
       {/* <AddNewProduct /> */}
-      <UpdateProduct productId={13}/>
+      <UpdateProduct productId={2}/>
     </>
   );
 }
